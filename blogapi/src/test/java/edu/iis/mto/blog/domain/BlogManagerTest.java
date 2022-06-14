@@ -47,7 +47,7 @@ class BlogManagerTest {
         User user = userParam.getValue();
         assertThat(user.getAccountStatus(), equalTo(AccountStatus.NEW));
     }
-    
+
     @Test
     void creatingShouldThrowExceptionWhenUserIsNotConfirmed() {
         blogService.createUser(new UserRequest("John", "Steward", "john@domain.com"));
