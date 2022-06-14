@@ -67,7 +67,7 @@ class BlogApiTest {
 
         mvc.perform(post("/blog/user").contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON)
-                        .content(writeJson(user)))
+                        .content(content)
                 .andExpect(status().isConflict());
     }
 
@@ -79,7 +79,7 @@ class BlogApiTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
-    
+
     private String writeJson(Object obj) throws JsonProcessingException {
         return new ObjectMapper().writer()
                                  .writeValueAsString(obj);
